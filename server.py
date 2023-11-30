@@ -23,3 +23,12 @@ while True:
         members = ["Anetar1", "Anetar2", "Anetar3"]
         response = "\n".join(members)
         clientS.send(response.encode("utf-8"))
+
+    elif fjalia.startswith("AUTHENTICATE"):
+        commands = fjalia.split(":")
+        if commands[1] == 'getuar' and commands[2] == '123':
+            response = 'AUTH_SUCCESS'
+            clientS.send(response.encode('utf-8'))
+        else:
+            response = 'AUTH_FAILED'
+            clientS.send(response.encode('utf-8'))
